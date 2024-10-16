@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tic_tac.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="start grid_center">START GAME</div>
+    <div class="options-num1 disabled">
+        <div class="tow-players grid_center">two players</div>
+        <div class="bot grid_center">BOT</div>
+    </div>
+    <div class="options-2 disabled">
+        <div class="x grid_center" style="--clr:#4070f4;">X</div>
+        <div class="o grid_center" style="--clr:tomato;">O</div>
+    </div>
+    <div class="boerd disabled">
+        <div class="label">
+            <div class="x2 grid_center">X</div>
+            <div class="o2 grid_center">O</div>
+        </div>
+        <div class="boerd-Game">
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+            <div class="btn grid_center"></div>
+        </div>
+        <div class="restart grid_center">restart</div>
+    </div>
+    <div class="winner grid_center disabled">
+        <div class="win"></div>
+        <div class="img"></div>
+        <div class="btns">
+            <div class="btn_restart" style="--clr:skyblue;"><i class="fa-solid fa-rotate-right"></i></div>
+            <div class="quite" style="--clr:#112;"><i class="fa-solid fa-right-to-bracket"></i></div>
+        </div>
+    </div>
+    <script src="tic_tac_toe.js"></script>
+</body>
+</html>

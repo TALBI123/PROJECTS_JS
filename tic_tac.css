@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: linear-gradient(120deg, #001,#003);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 255, 255, 0.932);
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.disabled{
+    display: none !important;
+}
+.start{
+    height: 45px;
+    width: 140px;
+    background-color: #4070f4;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.434);
+    transition: .4s transform cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.options-num1,.options-2{
+    transition: 1.5s transform cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    1.5s opacity cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.options-num1,.options-2{
+    width: 350px;
+    height: 80px;
+    background-image: linear-gradient(-120deg,#112,#112);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.325);
+}
+.tow-players{
+    width: 40%;
+}
+.bot{
+    width: 25%;
+}
+
+.tow-players,.bot,.x,.o{
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.523);
+    background-color: #4070f4;
+    transition: color .3s ease-in,font-size .3s ease-in;
+}
+.tow-players:active,.bot:active,.x:active{
+    background-color: #1b54f1;
+    color: azure;
+    font-size: 25px;
+}
+.x,.o{
+    width: 30%;
+    font-size: 23px;
+    background-color: var(--clr) ;
+}
+.o:active{
+    background-color: rgb(248, 83, 54);
+    color: azure;
+    font-size: 25px;
+}
+.label{
+    width: 50%;
+    height: 10%;
+    display: flex;
+    background-image: linear-gradient(-120deg,#112,#112);
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.523);
+    position: relative;
+}
+.label>*{
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+    z-index:6;
+    position: relative;
+}
+.boerd{
+    width: 330px;
+    height: 380px;
+    background-color: rgba(240, 255, 255, 0.215);
+    border-radius: 5px;
+    position: relative;
+    inset: 4px;
+    color: azure;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.29);
+}
+.boerd::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--gradient-value), tomato,rgb(46, 46, 178),#0a0ac4);
+    z-index: -1;
+    filter: blur(3rem);
+    animation: rotate 4s infinite linear;
+}
+.boerd-Game{
+    width: 80%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+}
+.boerd-Game *{
+    background-color: #d5d2e4db;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.523);
+    cursor: pointer;
+    font-size: 35px;
+}
+.restart{
+    position: absolute;
+    bottom: -15%;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #6161ee;
+    cursor: pointer;
+}
+.restart:active{
+    background-color: #3636f4;
+}
+.grid_center{
+    display: grid;
+    place-content: center;
+}
+@property --gradient-value{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes rotate{
+    0%{--gradient-value:0deg;}
+    100%{--gradient-value:360deg;}
+}
+.winner{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background-color: red;
+    border-radius:5px;
+    transform: scale(0);
+    opacity: 0;
+    transition: 1s transform linear,opacity 1s linear;
+}
+.winner .img{
+    --size:100px;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: calc(var(--size)/-2);
+    left: calc(50% - calc(var(--size)/2));
+    background-size: cover;
+}
+.btns{
+    position: absolute;
+    left: 25%;
+    bottom: 5px;
+    display: flex;
+    align-items: center;justify-content: space-around;
+    width: 50%;
+}
+.btns *{
+    background-color: var(--clr);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+/* ------------ js event ------------*/
+/* 1 - start */
+.start.remove_smothly{
+    transform: scaleY(0);
+}
+.options-num1.remove_smothly,.options-2.remove_smothly{
+    transform: scale(0);
+    opacity: 0;
+}
+.label :first-child::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4070f4; 
+    z-index: -1;
+    border-radius: 5px;
+    transition:transform .5s linear;
+    transform: translateX(100%);
+}
+.label :first-child.checked::after{
+    transform: var(--translate);
+}
+.checked{
+    background-color: #4070f4;
+}
+.disb_btn{
+    cursor:default;
+}
+.boerd-Game *.no-winner,.restart.disb_btn{
+    background-color: #7e7d7dd7 !important;
+}
+/* winner */
+.winner.active{
+    opacity: 1;
+    transform: scale(1);
+}
